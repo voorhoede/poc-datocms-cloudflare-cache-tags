@@ -1,11 +1,14 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+export const prerender = true;
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "PoC DatoCMS Cloudflare Cache Tags";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<head>
+  <meta charset="utf-8" />
+  <title>{title}</title>
+</head>
+<body>
+  <h1>{title}</h1>
+  <a href="/api/job-count">Job Count API endpoint</a>
+</body>

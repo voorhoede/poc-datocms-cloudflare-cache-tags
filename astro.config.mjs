@@ -1,9 +1,15 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from "astro/config";
+import cloudflare from "@astrojs/cloudflare";
 
-import cloudflare from '@astrojs/cloudflare';
-
-// https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare()
+  adapter: cloudflare(),
+  env: {
+    schema: {
+      DATOCMS_READONLY_API_TOKEN: envField.string({
+        context: "server",
+        access: "secret",
+      }),
+    },
+  },
+  output: "static",
 });
